@@ -1,0 +1,53 @@
+.container {
+	padding: 50px 35px;
+	max-width: 970px;
+}
+.main-header, 
+.sub-header,
+.skills,
+.list-education span {
+	color:  #33cccc;
+	font-weight: 600;
+}
+.header.line{
+	border-top: 2px solid black;
+	padding-top: 20px;
+}
+.sub-header {
+	margin: 0;
+}
+.experience-title {
+	font-weight: 600;
+}
+.experience-list,
+.list-education {
+	padding-left: 15px;
+}
+.experience-list li, .list-education li {
+	list-style: none;
+}
+.experience-list li::before, .list-education li::before{
+	content: "- ";
+	margin-right: 10px;
+}
+.skills {
+	columns: 2;
+	-webkit-columns: 2;
+	-moz-columns: 2;
+}
+.education {
+	float: left;
+	width: 50%;
+}
+.languages {
+	float: right;
+	width: 50%;
+}
+.languages p:nth-child(even) {
+	color:  #33cccc;
+	font-weight: 600;
+	margin: 0;
+}
+.list-education {
+	letter-spacing: -.7px;
+}
