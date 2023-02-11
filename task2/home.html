@@ -13,7 +13,8 @@
 </head>
 <body>
     <div class="container" style="padding-top: 50px;">
-        <form class="row g-3 needs-validation" novalidate method="post">
+      <div class="row">
+        <form class="row g-3 needs-validation register-user" novalidate method="post">
             <div class="col-md-4">
               <div class="form-outline">
                 <input type="text" class="form-control" id="name" name="name" required />
@@ -57,7 +58,7 @@
               </div>
             <div class="col-12">
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="check" name="check" required />
+                <input class="form-check-input" type="checkbox" id="check" name="check" required />
                 <label class="form-check-label" for="check">Uslovi koriscenja</label>
                 <div class="invalid-feedback">Obavezno polje</div>
               </div>
@@ -66,7 +67,9 @@
               <button class="btn btn-primary" type="submit">Submit form</button>
             </div>
         </form>
-        <div class="success"></div>
+      </div>
+      <div class="data-response"></div>
+      <div class="success"></div>
     </div>
 <script>
     (() => {
@@ -82,14 +85,15 @@
               event.preventDefault();
                 $.ajax({
                   type: "POST",
-                  url: "action.php",
-                  data: $(this).serialize(),
+                  url: "http://localhost/task2/action.php",
+                  data: $("form.register-user").serialize(),
                   success: function(response)
                   {
                     var jsonData = JSON.parse(response);
                     if (jsonData.success == "1")
                     {
-                      $(".container").html(jsonData.data);
+                      $(".container .row").html("");
+                      $(".data-response").text(JSON.stringify(jsonData.data));
                       $(".success").text("Successfuly submitted form!");
                     }
                     else
